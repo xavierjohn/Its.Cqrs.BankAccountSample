@@ -4,12 +4,11 @@ namespace BankAccountDomain
 {
     public partial class BankAccount
     {
-        public class Created : Event<BankAccount>
+        public class AccountClosed : Event<BankAccount>
         {
-            public CustomerId CustomerId { get; set; }
-
             public override void Update(BankAccount aggregate)
             {
+                aggregate.AccountStatus = AccountStatuses.Closed;
             }
         }
     }

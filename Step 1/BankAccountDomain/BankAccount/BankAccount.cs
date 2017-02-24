@@ -4,9 +4,17 @@ namespace BankAccountDomain
 {
     public partial class BankAccount : EventSourcedAggregate<BankAccount>
     {
-        public decimal Balance { get; private set; }
-        public BankAccount(Create create): base(create)
+        public BankAccount(OpenAccount openAccount) : base(openAccount)
         {
+        }
+
+        public decimal Balance { get; private set; }
+        public AccountStatuses AccountStatus { get; private set; }
+
+        public enum AccountStatuses
+        {
+            Open,
+            Closed
         }
     }
 }

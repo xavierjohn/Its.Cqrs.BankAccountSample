@@ -4,15 +4,15 @@ namespace BankAccountDomain
 {
     public partial class BankAccount
     {
-        public void EnactCommand(Withdraw command)
+        public void EnactCommand(OpenAccount command)
         {
-            var created = new Withdrawed() {Amount = command.Amount};
+            var created = new AccountOpened {CustomerId = command.CustomerId};
             RecordEvent(created);
         }
 
-        public class Withdraw : Command<BankAccount>
+        public class OpenAccount : ConstructorCommand<BankAccount>
         {
-            public decimal Amount { get; set; }
+            public CustomerId CustomerId { get; set; }
 
             public override bool Authorize(BankAccount target) => true;
         }

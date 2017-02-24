@@ -69,12 +69,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BankAccount\BankAccount.cs" />
-    <Compile Include="BankAccount\Commands\Withdraw.cs" />
-    <Compile Include="BankAccount\Commands\Deposit.cs" />
-    <Compile Include="BankAccount\Commands\Create.cs" />
-    <Compile Include="BankAccount\Events\Withdrawed.cs" />
-    <Compile Include="BankAccount\Events\Deposited.cs" />
-    <Compile Include="BankAccount\Events\Created.cs" />
+    <Compile Include="BankAccount\Commands\CloseAccount.cs" />
+    <Compile Include="BankAccount\Commands\WithdrawFunds.cs" />
+    <Compile Include="BankAccount\Commands\DepositFunds.cs" />
+    <Compile Include="BankAccount\Commands\OpenAccount.cs" />
+    <Compile Include="BankAccount\Events\AccountClosed.cs" />
+    <Compile Include="BankAccount\Events\FundsWithdrawed.cs" />
+    <Compile Include="BankAccount\Events\FundsDeposited.cs" />
+    <Compile Include="BankAccount\Events\AccountOpened.cs" />
     <Compile Include="Types\CustomerId.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -82,9 +84,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Miscellaneous\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
