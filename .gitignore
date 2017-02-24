@@ -1,6 +1,6 @@
-﻿*.user
-/Step 1/.vs/
-/Step 1/*/bin/Debug
-/Step 1/*/obj/Debug
-/Step 1/packages
+﻿.vs/
+bin/
+obj/
+.vs/
+packages/
 *.user
