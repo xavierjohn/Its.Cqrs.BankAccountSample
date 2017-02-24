@@ -43,8 +43,6 @@ namespace BankAccountDomain
                         .WithErrorMessage("You cannot make a withdrawal for a negative amount.");
                 }
             }
-
-            public override bool Authorize(BankAccount target) => true;
         }
     }
 }

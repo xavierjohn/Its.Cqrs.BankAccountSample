@@ -16,13 +16,12 @@ namespace BankAccountDomain
         {
             public decimal Amount { get; set; }
 
-            public override bool Authorize(BankAccount target) => true;
-
             /// <summary>
-            /// Gets a validator to check the state of the command in and of itself, as distinct from an aggregate.
+            ///     Gets a validator to check the state of the command in and of itself, as distinct from an aggregate.
             /// </summary>
             /// <remarks>
-            /// By default, this returns a Microsoft.Its.Validation.ValidationPlan`1 where TCommand is the command's actual type, with rules built up from any System.ComponentModel.DataAnnotations attributes applied to its properties.
+            ///     By default, this returns a Microsoft.Its.Validation.ValidationPlan`1 where TCommand is the command's actual type,
+            ///     with rules built up from any System.ComponentModel.DataAnnotations attributes applied to its properties.
             /// </remarks>
             public override IValidationRule CommandValidator
             {

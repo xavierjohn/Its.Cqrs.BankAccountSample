@@ -28,8 +28,6 @@ namespace BankAccountDomain
                     };
                 }
             }
-
-            public override bool Authorize(BankAccount target) => true;
         }
     }
 }

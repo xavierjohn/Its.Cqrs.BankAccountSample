@@ -9,6 +9,7 @@ namespace BankAccountDomain.Tests
     {
         public BankAccountUnitTests()
         {
+            Command<BankAccount>.AuthorizeDefault = (target, command) => true;
             account = new BankAccount(new BankAccount.OpenAccount {CustomerId = new CustomerId("Xavier")});
         }
 

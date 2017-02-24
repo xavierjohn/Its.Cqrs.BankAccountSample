@@ -13,8 +13,6 @@ namespace BankAccountDomain
         public class OpenAccount : ConstructorCommand<BankAccount>
         {
             public CustomerId CustomerId { get; set; }
-
-            public override bool Authorize(BankAccount target) => true;
         }
     }
 }
