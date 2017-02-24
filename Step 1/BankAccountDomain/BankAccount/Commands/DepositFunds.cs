@@ -17,6 +17,24 @@ namespace BankAccountDomain
             public decimal Amount { get; set; }
 
             /// <summary>
+            /// Gets a validator that can be used to check the valididty of the command against the state of the aggregate before it is applied.
+            /// </summary>
+            public override IValidationRule<BankAccount> Validator
+            {
+                get
+                {
+                    var accountIsNotClosed =
+                        Validate.That<BankAccount>(account => account.AccountStatus == AccountStatuses.Open)
+                            .WithErrorMessage("You cannot make a deposit to a closed account.");
+
+                    return new ValidationPlan<BankAccount>
+                    {
+                        accountIsNotClosed,
+                    };
+                }
+            }
+
+            /// <summary>
             ///     Gets a validator to check the state of the command in and of itself, as distinct from an aggregate.
             /// </summary>
             /// <remarks>

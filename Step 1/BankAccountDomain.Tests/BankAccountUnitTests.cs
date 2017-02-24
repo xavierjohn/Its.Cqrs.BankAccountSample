@@ -66,6 +66,14 @@ namespace BankAccountDomain.Tests
             exception = Assert.Throws<CommandValidationException>(testCode);
             Assert.Equal("You cannot make a withdrawal from a closed account.",
                 exception.ValidationReport.Failures.First().Message);
+
+            testCode = () => account.Apply(new BankAccount.DepositFunds()
+            {
+                Amount = 10.0m
+            });
+            exception = Assert.Throws<CommandValidationException>(testCode);
+            Assert.Equal("You cannot make a deposit to a closed account.",
+                exception.ValidationReport.Failures.First().Message);
         }
 
         [Fact]
