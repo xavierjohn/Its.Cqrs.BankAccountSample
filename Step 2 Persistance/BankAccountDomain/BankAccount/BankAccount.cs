@@ -1,10 +1,15 @@
-﻿using Microsoft.Its.Domain;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.Its.Domain;
 
 namespace BankAccountDomain
 {
     public partial class BankAccount : EventSourcedAggregate<BankAccount>
     {
         public BankAccount(OpenAccount openAccount) : base(openAccount)
+        {
+        }
+        public BankAccount(Guid id, IEnumerable<IEvent> eventHistory) : base(id, eventHistory)
         {
         }
 

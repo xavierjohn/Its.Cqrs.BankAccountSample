@@ -1,4 +1,5 @@
-﻿using Microsoft.Its.Domain;
+﻿using System;
+using Microsoft.Its.Domain;
 
 namespace BankAccountDomain
 {
@@ -12,6 +13,10 @@ namespace BankAccountDomain
 
         public class OpenAccount : ConstructorCommand<BankAccount>
         {
+            public OpenAccount(Guid aggregateId) : base(aggregateId)
+            {
+            }
+
             public CustomerId CustomerId { get; set; }
         }
     }

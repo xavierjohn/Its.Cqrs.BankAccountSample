@@ -10,7 +10,7 @@ namespace BankAccountDomain.Tests
         public BankAccountUnitTests()
         {
             Command<BankAccount>.AuthorizeDefault = (target, command) => true;
-            account = new BankAccount(new BankAccount.OpenAccount {CustomerId = new CustomerId("Xavier")});
+            account = new BankAccount(new BankAccount.OpenAccount(Guid.NewGuid()) {CustomerId = new CustomerId("Xavier")});
         }
 
         private readonly BankAccount account;

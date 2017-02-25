@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccountDomain", "BankAc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccountDomain.Tests", "BankAccountDomain.Tests\BankAccountDomain.Tests.csproj", "{2E3DF5C2-8A38-4A03-86D7-8D463C917E47}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccountPersistence", "BankAccountPersistence\BankAccountPersistence.csproj", "{BF3BA02B-52D7-404C-9556-9A648D90CEBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccountPersistence.Tests", "BankAccountPersistence.Tests\BankAccountPersistence.Tests.csproj", "{624AC93B-4BF7-4B73-858D-6CC2FC9025AC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{2E3DF5C2-8A38-4A03-86D7-8D463C917E47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E3DF5C2-8A38-4A03-86D7-8D463C917E47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E3DF5C2-8A38-4A03-86D7-8D463C917E47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF3BA02B-52D7-404C-9556-9A648D90CEBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF3BA02B-52D7-404C-9556-9A648D90CEBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF3BA02B-52D7-404C-9556-9A648D90CEBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF3BA02B-52D7-404C-9556-9A648D90CEBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{624AC93B-4BF7-4B73-858D-6CC2FC9025AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{624AC93B-4BF7-4B73-858D-6CC2FC9025AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{624AC93B-4BF7-4B73-858D-6CC2FC9025AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{624AC93B-4BF7-4B73-858D-6CC2FC9025AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
