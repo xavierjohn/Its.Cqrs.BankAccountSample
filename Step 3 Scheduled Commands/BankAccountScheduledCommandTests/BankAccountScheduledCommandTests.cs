@@ -82,9 +82,7 @@ namespace BankAccountScheduledCommandTests
                     c => c.UseConnectionString(TestSettings.ConnectionStringCommandScheduler))
                 .UseDependency<GetClockName>(c => _ => TestSettings.CustomClockName);
 
-            _configuration
-                .SchedulerClockRepository()
-                .CreateClock(TestSettings.CustomClockName, Clock.Now());
+            CreateClockIfNotExists();
 
             _repository = _configuration.Repository<BankAccount>();
 
@@ -106,6 +104,33 @@ namespace BankAccountScheduledCommandTests
             var task = _repository.Save(_bankAccount);
             task.Wait();
             _configuration.Dispose();
+        }
+
+        private void CreateClockIfNotExists()
+        {
+            try
+            {
+                using (var con = new SqlConnection(TestSettings.ConnectionStringCommandScheduler))
+                {
+                    con.Open();
+                    using (
+                        var command =
+                            new SqlCommand(
+                                $"select 1 from [Scheduler].[Clock] where [Name]='{TestSettings.CustomClockName}'",
+                                con))
+                    {
+                        var exists = command.ExecuteScalar();
+                        if (exists == null)
+                            _configuration
+                                .SchedulerClockRepository()
+                                .CreateClock(TestSettings.CustomClockName, Clock.Now());
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
         public static CleanUpDatabaseFixture Current = new CleanUpDatabaseFixture();
@@ -151,7 +176,7 @@ namespace BankAccountScheduledCommandTests
         public async Task TestScheduledCommand()
         {
             var clockTime = DateTimeOffset.Now.AddMilliseconds(10);
-                // Small offset so that add day will not fall on the boundary of the scheduled command.
+            // Small offset so that add day will not fall on the boundary of the scheduled command.
             clockTime = await ForwardClock(clockTime);
             await ForwardClock(clockTime);
         }
