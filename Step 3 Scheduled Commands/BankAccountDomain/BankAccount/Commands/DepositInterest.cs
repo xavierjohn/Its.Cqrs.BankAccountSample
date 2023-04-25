@@ -21,10 +21,11 @@ namespace BankAccountDomain
                 _scheduler = scheduler;
             }
 
-            public async Task EnactCommand(BankAccount target, DepositInterest command)
+            public Task EnactCommand(BankAccount target, DepositInterest command)
             {
                 var created = new InterestDeposited {Amount = command.Amount};
                 target.RecordEvent(created);
+                return Task.CompletedTask;
             }
 
             public Task HandleScheduledCommandException(BankAccount target, CommandFailed<DepositInterest> command)
